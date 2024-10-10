@@ -1,0 +1,11 @@
+﻿@model IEnumerable<HotelBookingSystem.Models.Hotel>
+
+<h2>Available Hotels</h2>
+
+@foreach (var hotel in Model)
+{
+    <div>
+        <h3>@hotel.Name (@hotel.Location)</h3>
+        <a asp-action="Details" asp-route-id="@hotel.Id">View Rooms</a>
+    </div>
+}

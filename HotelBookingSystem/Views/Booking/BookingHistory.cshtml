@@ -1,0 +1,23 @@
+﻿@model IEnumerable<HotelBookingSystem.Models.Booking>
+
+<h2>Booking History for @Model.FirstOrDefault()?.CustomerName</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Room ID</th>
+            <th>Booking Date</th>
+            <th>Check-Out Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.RoomId</td>
+                <td>@booking.BookingDate</td>
+                <td>@booking.CheckOutDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model HotelBookingSystem.Models.Hotel
+
+<h2>@Model.Name (@Model.Location)</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Room Type</th>
+            <th>Availability</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.RoomType</td>
+                <td>@(room.IsAvailable ? "Available" : "Booked")</td>
+                <td>
+                    @if (room.IsAvailable)
+                    {
+                        <a asp-action="BookRoom" asp-route-roomId="@room.Id">Book</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
